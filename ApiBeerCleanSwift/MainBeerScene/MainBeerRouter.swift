@@ -17,11 +17,11 @@ import UIKit
 }
 
 protocol MainBeerDataPassing{
-  var dataStore: MainBeerDataStore? { get }
+ // var dataStore: MainBeerDataStore? { get }
 }
 
 class MainBeerRouter: NSObject, MainBeerRoutingLogic, MainBeerDataPassing{
   weak var viewController: MainBeerViewController?
-  var dataStore: MainBeerDataStore?
+ // var dataStore: MainBeerDataStore?
 
 }

@@ -7,23 +7,25 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class BeerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lbl: UILabel!
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var beer:MainBeer.Beer?{
+        didSet{
+            configureCell()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureCell(){
+        lbl.text = beer?.name
+        img.image = nil
+        img.af_cancelImageRequest()
+        img.af_setImage(withURL: URL(string:((beer?.image_url)!))!, filter: AspectScaledToFitSizeFilter(size: CGSize(width: self.img.frame.width, height: self.img.frame.height)), imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: { (_) in
+        })
     }
     
 }

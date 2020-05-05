@@ -46,7 +46,7 @@ class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     interactor.presenter = presenter
     presenter.viewController = viewController
     router.viewController = viewController
-    router.dataStore = interactor
+   // router.dataStore = interactor
   }
   
   // MARK: Routing
@@ -86,7 +86,7 @@ extension MainBeerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BeerTableViewCell", for: indexPath) as? BeerTableViewCell{
-            cell.carro = interactor?.cellForRow(indexPath: indexPath)
+            cell.beer = interactor?.cellForRow(indexPath: indexPath)
             return cell
         }
         return UITableViewCell()

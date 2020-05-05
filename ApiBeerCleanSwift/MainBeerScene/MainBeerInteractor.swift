@@ -19,15 +19,13 @@ protocol MainBeerBusinessLogic {
 }
 
 protocol MainDataStore {
-  var selectedCar: MainBeer.Beer? { get set }
+  var selectedBeer: MainBeer.Beer? { get set }
 }
 
 class MainBeerInteractor: MainBeerBusinessLogic, MainDataStore {
-    
+
     var selectedBeer: MainBeer.Beer?
     var listBeer:[MainBeer.Beer] = []
-    
-  var presenter: MainBeerPresentationLogic?
     
     var worker: MainBeerWorker
     init(worker:MainBeerWorker = MainBeerWorker()) {
@@ -41,11 +39,11 @@ class MainBeerInteractor: MainBeerBusinessLogic, MainDataStore {
     }
     
     func load(){
-        worker.getCarros().done(handleSuccess).catch(handleFailure)
+        worker.getBers().done(handleSuccess).catch(handleFailure)
     }
     
-    func handleSuccess(model: MainBeer.Beer) {
-        listBeer = MainBeer.Beer
+    func handleSuccess(model: [MainBeer.Beer]) {
+        listBeer = model
         presenter?.reloadTable()
     }
     

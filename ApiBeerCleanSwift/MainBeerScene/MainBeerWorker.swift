@@ -15,12 +15,12 @@ import PromiseKit
 
 class MainBeerWorker{
     
-    func getCarros() -> Promise<MainBeer.Beer> {
+    func getBers() -> Promise<[MainBeer.Beer]> {
         let url = URL(string: Constants.URL_BASE)!
-        return Promise<MainBeer.Beer> { seal in
+        return Promise<[MainBeer.Beer]> { seal in
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let data = data {
-                    let objParse = try! JSONDecoder().decode(Main.CarrosResponse.self, from: data)
+                    let objParse = try! JSONDecoder().decode([MainBeer.Beer].self, from: data)
                     seal.fulfill(objParse)
                 } else {
                     seal.reject(NSError(domain: "", code: 0, userInfo: nil))
