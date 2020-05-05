@@ -46,7 +46,7 @@ class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     interactor.presenter = presenter
     presenter.viewController = viewController
     router.viewController = viewController
-   // router.dataStore = interactor
+    router.dataStore = interactor
   }
   
   // MARK: Routing
@@ -74,7 +74,7 @@ class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     }
     
     func routeToDetail() {
-        
+        router?.routeToDetail()
     }
 }
 

@@ -11,14 +11,22 @@
 //
 
 import UIKit
+import AlamofireImage
 
-protocol BeerDetailDisplayLogic: class
-{
-  func displaySomething(viewModel: BeerDetail.Something.ViewModel)
+protocol BeerDetailDisplayLogic: class {
+    func showName(name: String)
+    func showDesc(desc: String)
+     func showImage(imgUrl: String)
 }
 
 class BeerDetailViewController: UIViewController, BeerDetailDisplayLogic
 {
+    
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var lbl: UILabel!
+    @IBOutlet weak var txtView: UITextView!
+    
+    
   var interactor: BeerDetailBusinessLogic?
   var router: (NSObjectProtocol & BeerDetailRoutingLogic & BeerDetailDataPassing)?
 
@@ -36,10 +44,7 @@ class BeerDetailViewController: UIViewController, BeerDetailDisplayLogic
     setup()
   }
   
-  // MARK: Setup
-  
-  private func setup()
-  {
+  private func setup() {
     let viewController = self
     let interactor = BeerDetailInteractor()
     let presenter = BeerDetailPresenter()
@@ -51,39 +56,22 @@ class BeerDetailViewController: UIViewController, BeerDetailDisplayLogic
     router.viewController = viewController
     router.dataStore = interactor
   }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        interactor?.load()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = BeerDetail.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: BeerDetail.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    func showName(name: String) {
+        lbl.text = name
+    }
+    
+    func showDesc(desc: String) {
+        txtView.text = desc
+    }
+    
+    func showImage(imgUrl: String){
+        img.af_setImage(withURL: URL(string: imgUrl)!)
+    }
+        
 }

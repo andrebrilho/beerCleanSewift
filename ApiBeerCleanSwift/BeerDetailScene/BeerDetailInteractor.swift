@@ -12,30 +12,28 @@
 
 import UIKit
 
-protocol BeerDetailBusinessLogic
-{
-  func doSomething(request: BeerDetail.Something.Request)
+protocol BeerDetailBusinessLogic {
+    func load()
+    }
+
+protocol BeerDetailDataStore {
+    var selectedBeer:MainBeer.Beer? { get set }
 }
 
-protocol BeerDetailDataStore
-{
-  //var name: String { get set }
-}
-
-class BeerDetailInteractor: BeerDetailBusinessLogic, BeerDetailDataStore
-{
+class BeerDetailInteractor: BeerDetailBusinessLogic, BeerDetailDataStore {
+    
   var presenter: BeerDetailPresentationLogic?
   var worker: BeerDetailWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: BeerDetail.Something.Request)
-  {
-    worker = BeerDetailWorker()
-    worker?.doSomeWork()
+    var selectedBeer: MainBeer.Beer?
     
-    let response = BeerDetail.Something.Response()
-    presenter?.presentSomething(response: response)
+    init(worker:BeerDetailWorker = BeerDetailWorker()) {
+        self.worker = worker
+    }
+
+  
+  func load(){
+    presenter?.showDesc(desc: selectedBeer?.description ?? "")
+    presenter?.showName(name: selectedBeer?.name ?? "")
+    presenter?.showImage(imgUrl: selectedBeer?.image_url ?? "")
   }
 }

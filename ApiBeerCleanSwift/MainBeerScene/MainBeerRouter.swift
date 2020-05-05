@@ -12,16 +12,28 @@
 
 import UIKit
 
-@objc protocol MainBeerRoutingLogic{
-    
+@objc protocol MainBeerRoutingLogic {
+    func routeToDetail()
 }
 
-protocol MainBeerDataPassing{
- // var dataStore: MainBeerDataStore? { get }
+protocol MainBeerDataPassing {
+  var dataStore: MainDataStore? { get }
 }
 
 class MainBeerRouter: NSObject, MainBeerRoutingLogic, MainBeerDataPassing{
   weak var viewController: MainBeerViewController?
- // var dataStore: MainBeerDataStore?
-
+  var dataStore: MainDataStore?
+    
+    func routeToDetail() {
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let detail = storyBoard.instantiateViewController(withIdentifier: "detailVC")
+        var destinationDS = (detail as! BeerDetailViewController).router!.dataStore!
+        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+        //viewController?.present(detail, animated: true)
+        viewController?.navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    func passDataToSomewhere(source: MainDataStore, destination: inout BeerDetailDataStore) {
+        destination.selectedBeer = source.selectedBeer
+}
 }

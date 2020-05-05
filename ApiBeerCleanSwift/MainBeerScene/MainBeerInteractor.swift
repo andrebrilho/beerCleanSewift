@@ -63,6 +63,4 @@ class MainBeerInteractor: MainBeerBusinessLogic, MainDataStore {
         selectedBeer = listBeer[indexPath.row]
         presenter?.routeToDetail()
     }
-    
-
 }

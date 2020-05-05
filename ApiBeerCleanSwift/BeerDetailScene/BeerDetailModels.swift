@@ -12,20 +12,6 @@
 
 import UIKit
 
-enum BeerDetail
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
+enum BeerDetail {
+
 }

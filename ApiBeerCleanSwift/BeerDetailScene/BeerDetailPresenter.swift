@@ -12,20 +12,25 @@
 
 import UIKit
 
-protocol BeerDetailPresentationLogic
-{
-  func presentSomething(response: BeerDetail.Something.Response)
+protocol BeerDetailPresentationLogic {
+  func showName(name:String)
+  func showDesc(desc:String)
+    func showImage(imgUrl: String)
 }
 
 class BeerDetailPresenter: BeerDetailPresentationLogic
 {
   weak var viewController: BeerDetailDisplayLogic?
   
-  // MARK: Do something
-  
-  func presentSomething(response: BeerDetail.Something.Response)
-  {
-    let viewModel = BeerDetail.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func showName(name: String) {
+      viewController?.showName(name: name)
   }
+  
+  func showDesc(desc: String) {
+      viewController?.showDesc(desc: desc)
+  }
+    
+    func showImage(imgUrl: String) {
+        viewController?.showImage(imgUrl: imgUrl)
+    }
 }
