@@ -13,23 +13,21 @@ import Foundation
 
 class MainBeerViewControllerTests: XCTestCase {
     
-    var viewController:MainBeerViewController!
-    var interctor: MainBeerInteractor!
+    var viewController: MainBeerViewController!
+    var interactor: MainBeerInteractor!
     var presenter: MainBeerPresenter!
     
-
     override func setUp() {
-        let interactor = MainBeerInteractor()
-        let viewController = MainBeerViewController()
+        interactor = MainBeerInteractor()
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainBeerViewController") as? MainBeerViewController
         self.presenter = MainBeerPresenter()
         interactor.presenter = self.presenter
-        viewController.interactor = self.interctor
+        viewController.interactor = self.interactor
+        viewController.loadView()
         
     }
         
     func test_istance() throws {
         XCTAssertTrue(viewController.isKind(of: MainBeerViewController.self))
     }
-
-
 }

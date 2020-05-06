@@ -99,7 +99,6 @@ class ApiBeerCleanSwiftTests: XCTestCase {
 
 
     func test_did_select_row(){
-        
         let beerList = MainBeer.Beer(id: 1, name: "teste", tagline: "teste", description: "teste", image_url: "teste", attenuation_level: 1.0, abv: 1.0)
         subject.listBeer = [beerList]
         subject.didSelectRow(indexPath: IndexPath(row: 0, section: 0))

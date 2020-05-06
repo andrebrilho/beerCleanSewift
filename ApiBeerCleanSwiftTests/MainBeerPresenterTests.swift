@@ -13,21 +13,20 @@ import Foundation
 
 class MainBeerPresenterTests: XCTestCase {
     
-    
     var presenter: MainBeerPresenter!
     var viewController: MainBeerViewController!
     var interactor:MainBeerInteractor!
     
     override func setUp() {
         
-        let interactor = MainBeerInteractor()
-        let presenter = MainBeerPresenter()
-        let viewController = MainBeerViewController()
+        interactor = MainBeerInteractor()
+        presenter = MainBeerPresenter()
+        viewController = MainBeerViewController()
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
         viewController.loadView()
-        viewController.viewDidLoad()
+        
         }
     
     

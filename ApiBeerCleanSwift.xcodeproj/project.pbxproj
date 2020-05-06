@@ -161,11 +161,11 @@
 		EA4825AE2461B1890015CBDC /* ApiBeerCleanSwift */ = {
 			isa = PBXGroup;
 			children = (
+				EA4825E42461B4850015CBDC /* BeerDetailScene */,
 				EA4825C42461B25B0015CBDC /* Helpers */,
+				EA4825D52461B3AF0015CBDC /* MainBeerScene */,
 				EA4825D62461B42D0015CBDC /* SuportingFiles */,
 				EA4825D72461B4620015CBDC /* Views */,
-				EA4825D52461B3AF0015CBDC /* MainBeerScene */,
-				EA4825E42461B4850015CBDC /* BeerDetailScene */,
 			);
 			path = ApiBeerCleanSwift;
 			sourceTree = "<group>";
