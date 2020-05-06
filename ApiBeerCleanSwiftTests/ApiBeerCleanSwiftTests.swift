@@ -11,8 +11,6 @@ import XCTest
 import UIKit
 import PromiseKit
 
-
-
 @testable import ApiBeerCleanSwift
 
 class ApiBeerCleanSwiftTests: XCTestCase {
@@ -66,7 +64,7 @@ class ApiBeerCleanSwiftTests: XCTestCase {
                 let interactor = MainBeerInteractor(worker: mockWorker)
                 self.dummyHomePresenter = DummyHomePresenter()
                 interactor.presenter = self.dummyHomePresenter
-             self.subject = interactor
+                self.subject = interactor
             }
 
             //testar qnd der sucesso
