@@ -6,5 +6,11 @@ target 'ApiBeerCleanSwift' do
     pod 'PromiseKit'
     pod 'Quick'
     pod 'Nimble'
+    
+    target 'ApiBeerCleanSwiftTests' do
+      # Pods for testing
+    pod 'Nimble-Snapshots', '8.0.0'
+    pod 'KIF', '3.7.8'
+    end
 
 end

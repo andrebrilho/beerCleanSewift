@@ -9,7 +9,8 @@
 
 import XCTest
 import UIKit
-//import PromiseKit
+import PromiseKit
+
 
 
 @testable import ApiBeerCleanSwift
@@ -32,37 +33,37 @@ class ApiBeerCleanSwiftTests: XCTestCase {
         }
     
     //mockWorker
-//    class MockWorker: MainBeerWorker {
-//        var isSucesss = true
-//
-//        override func getBers() -> Promise<[MainBeer.Beer]> {
-//
-//            if isSucesss {
-//                let beer1 = MainBeer.Beer(id: 1, name: "Skol", tagline: "teste tagLine", description: "description Beer", image_url: "https//www.google.com", attenuation_level: 9.6, abv: 2.2)
-//                let beer2 = MainBeer.Beer(id: 12, name: "Itaipava", tagline: "teste tagLine cervaja puro malte", description: "description Beer numero 2", image_url: "https//www.google.com", attenuation_level: 12.8, abv: 6.2)
-//
-//                let beers = [beer1, beer2]
-//                let response = MainBeer.Beer(beers)
-//                return Promise {seal in
-//                    seal.fulfill(response)
-//                }
-//            } else {
-//                let error: Error = NSError(domain: "", code: 404, userInfo: nil)
-//                return Promise {seal in
-//                    seal.reject(error)
-//                }
-//            }
-//        }
-//    }
+    class MockWorker: MainBeerWorker {
+        var isSucesss = true
+
+        override func getBers() -> Promise<[MainBeer.Beer]> {
+
+            if isSucesss {
+                let beer1 = MainBeer.Beer(id: 1, name: "Skol", tagline: "teste tagLine", description: "description Beer", image_url: "https//www.google.com", attenuation_level: 9.6, abv: 2.2)
+                let beer2 = MainBeer.Beer(id: 12, name: "Itaipava", tagline: "teste tagLine cervaja puro malte", description: "description Beer numero 2", image_url: "https//www.google.com", attenuation_level: 12.8, abv: 6.2)
+
+                let beers:[MainBeer.Beer] = [beer1, beer2]
+                let response = beers
+                return Promise {seal in
+                    seal.fulfill(response)
+                }
+            } else {
+                let error: Error = NSError(domain: "", code: 404, userInfo: nil)
+                return Promise {seal in
+                    seal.reject(error)
+                }
+            }
+        }
+    }
         
             //quero testar o sujeito se ele foi chamado, validando a chamada do presenter
             var subject: MainBeerInteractor!
             var dummyHomePresenter: DummyHomePresenter!
-         //   var mockWorker = MockWorker()
+            var mockWorker = MockWorker()
     
             override func setUp() {
                 
-                let interactor = MainBeerInteractor()
+                let interactor = MainBeerInteractor(worker: mockWorker)
                 self.dummyHomePresenter = DummyHomePresenter()
                 interactor.presenter = self.dummyHomePresenter
              self.subject = interactor
@@ -70,10 +71,18 @@ class ApiBeerCleanSwiftTests: XCTestCase {
 
             //testar qnd der sucesso
             func test_load_when_is_success() {
-       //         self.mockWorker.isSucesss = true
+                self.mockWorker.isSucesss = true
                 subject.load()
+                subject.handleSuccess(model: self.mockWorker.getBers().value!)
                 XCTAssertTrue(dummyHomePresenter.hasToReloadTable)
             }
+    
+    func test_load_when_is_error() {
+        self.mockWorker.isSucesss = false
+        subject.load()
+        subject.handleFailure(error: self.mockWorker.getBers().error!)
+        XCTAssertTrue(dummyHomePresenter.hasMessageError)
+    }
 
         //testar qnd der sucesso
         var modelBeer:[MainBeer.Beer] = []

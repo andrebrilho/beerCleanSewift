@@ -15,7 +15,7 @@ import UIKit
 protocol BeerDetailPresentationLogic {
   func showName(name:String)
   func showDesc(desc:String)
-    func showImage(imgUrl: String)
+  func showImage(imgUrl: String)
 }
 
 class BeerDetailPresenter: BeerDetailPresentationLogic
