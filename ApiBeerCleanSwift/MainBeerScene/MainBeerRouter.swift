@@ -29,7 +29,6 @@ class MainBeerRouter: NSObject, MainBeerRoutingLogic, MainBeerDataPassing{
         let detail = storyBoard.instantiateViewController(withIdentifier: "detailVC")
         var destinationDS = (detail as! BeerDetailViewController).router!.dataStore!
         passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-        //viewController?.present(detail, animated: true)
         viewController?.navigationController?.pushViewController(detail, animated: true)
     }
     

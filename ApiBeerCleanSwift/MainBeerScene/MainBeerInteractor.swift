@@ -13,9 +13,8 @@
 import UIKit
 
 protocol MainBeerBusinessLogic {
-    var numberOfRows: Int { get }
-    func cellForRow(indexPath:IndexPath) -> MainBeer.Beer
     func didSelectRow(indexPath: IndexPath)
+    func load()
 }
 
 protocol MainDataStore {
@@ -32,31 +31,20 @@ class MainBeerInteractor: MainBeerBusinessLogic, MainDataStore {
         self.worker = worker
     }
     
-    var presenter: MainBeerPresentationLogic? {
-        didSet {
-            load()
-        }
-    }
+    var presenter: MainBeerPresentationLogic?
     
     func load(){
         worker.getBers().done(handleSuccess).catch(handleFailure)
     }
     
     func handleSuccess(model: [MainBeer.Beer]) {
+        presenter?.showData(listBeer: model)
         listBeer = model
         presenter?.reloadTable()
     }
     
     func handleFailure(error:Error) {
-        print("OPS deu ruim")
-    }
-    
-    var numberOfRows: Int {
-        return listBeer.count
-    }
-    
-    func cellForRow(indexPath: IndexPath) -> MainBeer.Beer {
-        return listBeer[indexPath.row]
+        presenter?.showError()
     }
     
     func didSelectRow(indexPath: IndexPath) {

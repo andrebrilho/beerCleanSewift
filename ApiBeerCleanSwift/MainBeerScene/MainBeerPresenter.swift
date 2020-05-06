@@ -15,9 +15,17 @@ import UIKit
 protocol MainBeerPresentationLogic {
     func reloadTable()
     func routeToDetail()
+    func showData(listBeer:[MainBeer.Beer])
+    func showError()
 }
 
 class MainBeerPresenter: MainBeerPresentationLogic{
+
+    
+    func showData(listBeer: [MainBeer.Beer]) {
+        viewController?.showData(listBeer)
+    }
+    
   weak var viewController: MainBeerDisplayLogic?
     
     func reloadTable() {
@@ -26,6 +34,10 @@ class MainBeerPresenter: MainBeerPresentationLogic{
     
     func routeToDetail() {
         viewController?.routeToDetail()
+    }
+    
+    func showError(){
+        viewController?.showError(erro: "OPS")
     }
 
 }

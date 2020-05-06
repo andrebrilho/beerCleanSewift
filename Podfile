@@ -4,5 +4,7 @@ target 'ApiBeerCleanSwift' do
 
     pod 'AlamofireImage', '3.4.0'
     pod 'PromiseKit'
+    pod 'Quick'
+    pod 'Nimble'
 
 end

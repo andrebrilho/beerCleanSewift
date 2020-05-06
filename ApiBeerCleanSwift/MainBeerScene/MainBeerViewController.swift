@@ -15,16 +15,16 @@ import UIKit
 protocol MainBeerDisplayLogic: class {
     func reloadTable()
     func routeToDetail()
+    func showData(_ listBeer:[MainBeer.Beer])
+    func showError(erro: String)
 }
 
 class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     
   @IBOutlet weak var tbl: UITableView!
-    
+    var beerTable:[MainBeer.Beer] = []
   var interactor: MainBeerBusinessLogic?
   var router: (NSObjectProtocol & MainBeerRoutingLogic & MainBeerDataPassing)?
-
-  // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?){
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -49,8 +49,6 @@ class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     router.dataStore = interactor
   }
   
-  // MARK: Routing
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?){
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -60,33 +58,41 @@ class MainBeerViewController: UIViewController, MainBeerDisplayLogic {
     }
   }
   
-  // MARK: View lifecycle
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.dataSource = self
         tbl.delegate = self
         tbl.register(UINib(nibName: "BeerTableViewCell", bundle: nil), forCellReuseIdentifier: "BeerTableViewCell")
+        interactor?.load()
     }
     
     func reloadTable() {
         tbl.reloadData()
     }
     
+    func showError(erro: String) {
+        Alert.showAlertError(mensagemErro: erro, titleMsgErro: "Alerta", view: self)
+    }
+    
     func routeToDetail() {
         router?.routeToDetail()
     }
+    
+    func showData(_ listBeer: [MainBeer.Beer]) {
+        beerTable = listBeer
+    }
+
 }
 
 extension MainBeerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor?.numberOfRows ?? 0
+        return beerTable.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BeerTableViewCell", for: indexPath) as? BeerTableViewCell{
-            cell.beer = interactor?.cellForRow(indexPath: indexPath)
+            cell.beer = beerTable[indexPath.row]
             return cell
         }
         return UITableViewCell()
@@ -100,6 +106,4 @@ extension MainBeerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
-    
 }

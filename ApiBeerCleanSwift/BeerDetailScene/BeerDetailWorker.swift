@@ -12,9 +12,6 @@
 
 import UIKit
 
-class BeerDetailWorker
-{
-  func doSomeWork()
-  {
-  }
+class BeerDetailWorker {
+
 }

@@ -23,6 +23,5 @@ enum MainBeer
             var attenuation_level : Float?
             var abv : Float?
         }
-    
 }
 

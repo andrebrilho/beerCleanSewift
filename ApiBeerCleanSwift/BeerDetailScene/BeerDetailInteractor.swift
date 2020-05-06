@@ -30,7 +30,6 @@ class BeerDetailInteractor: BeerDetailBusinessLogic, BeerDetailDataStore {
         self.worker = worker
     }
 
-  
   func load(){
     presenter?.showDesc(desc: selectedBeer?.description ?? "")
     presenter?.showName(name: selectedBeer?.name ?? "")

@@ -27,5 +27,4 @@ class BeerTableViewCell: UITableViewCell {
         img.af_setImage(withURL: URL(string:((beer?.image_url)!))!, filter: AspectScaledToFitSizeFilter(size: CGSize(width: self.img.frame.width, height: self.img.frame.height)), imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: { (_) in
         })
     }
-    
 }

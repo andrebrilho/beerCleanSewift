@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		77C167044C390B48E2D94F26 /* Pods_ApiBeerCleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD1542166FF4A0BE50AC86A /* Pods_ApiBeerCleanSwift.framework */; };
+		EA32402F24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA32402E24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift */; };
 		EA4825B02461B1890015CBDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4825AF2461B1890015CBDC /* AppDelegate.swift */; };
 		EA4825B52461B1890015CBDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4825B32461B1890015CBDC /* Main.storyboard */; };
 		EA4825B82461B1890015CBDC /* ApiBeerCleanSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA4825B62461B1890015CBDC /* ApiBeerCleanSwift.xcdatamodeld */; };
@@ -31,10 +32,23 @@
 		EA4825EA2461B5000015CBDC /* BeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4825E82461B5000015CBDC /* BeerTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EA32403124622F4600FC4F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA4825A42461B1890015CBDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA4825AB2461B1890015CBDC;
+			remoteInfo = ApiBeerCleanSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6B6499F214C79961073941AB /* Pods-ApiBeerCleanSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiBeerCleanSwift.debug.xcconfig"; path = "Target Support Files/Pods-ApiBeerCleanSwift/Pods-ApiBeerCleanSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD4B952A109FA1108498AE2 /* Pods-ApiBeerCleanSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiBeerCleanSwift.release.xcconfig"; path = "Target Support Files/Pods-ApiBeerCleanSwift/Pods-ApiBeerCleanSwift.release.xcconfig"; sourceTree = "<group>"; };
 		CFD1542166FF4A0BE50AC86A /* Pods_ApiBeerCleanSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiBeerCleanSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA32402C24622F4600FC4F27 /* ApiBeerCleanSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiBeerCleanSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA32402E24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBeerCleanSwiftTests.swift; sourceTree = "<group>"; };
+		EA32403024622F4600FC4F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4825AC2461B1890015CBDC /* ApiBeerCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiBeerCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4825AF2461B1890015CBDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA4825B42461B1890015CBDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EA32402924622F4600FC4F27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA4825A92461B1890015CBDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,14 +99,23 @@
 				6B6499F214C79961073941AB /* Pods-ApiBeerCleanSwift.debug.xcconfig */,
 				CAD4B952A109FA1108498AE2 /* Pods-ApiBeerCleanSwift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA32402D24622F4600FC4F27 /* ApiBeerCleanSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA32402E24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift */,
+				EA32403024622F4600FC4F27 /* Info.plist */,
+			);
+			path = ApiBeerCleanSwiftTests;
 			sourceTree = "<group>";
 		};
 		EA4825A32461B1890015CBDC = {
 			isa = PBXGroup;
 			children = (
 				EA4825AE2461B1890015CBDC /* ApiBeerCleanSwift */,
+				EA32402D24622F4600FC4F27 /* ApiBeerCleanSwiftTests */,
 				EA4825AD2461B1890015CBDC /* Products */,
 				6E903571DECA8A85D80E186F /* Pods */,
 				EE9185ED83E4AC5023929006 /* Frameworks */,
@@ -96,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				EA4825AC2461B1890015CBDC /* ApiBeerCleanSwift.app */,
+				EA32402C24622F4600FC4F27 /* ApiBeerCleanSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +211,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EA32402B24622F4600FC4F27 /* ApiBeerCleanSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA32403324622F4600FC4F27 /* Build configuration list for PBXNativeTarget "ApiBeerCleanSwiftTests" */;
+			buildPhases = (
+				EA32402824622F4600FC4F27 /* Sources */,
+				EA32402924622F4600FC4F27 /* Frameworks */,
+				EA32402A24622F4600FC4F27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA32403224622F4600FC4F27 /* PBXTargetDependency */,
+			);
+			name = ApiBeerCleanSwiftTests;
+			productName = ApiBeerCleanSwiftTests;
+			productReference = EA32402C24622F4600FC4F27 /* ApiBeerCleanSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EA4825AB2461B1890015CBDC /* ApiBeerCleanSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA4825C12461B18C0015CBDC /* Build configuration list for PBXNativeTarget "ApiBeerCleanSwift" */;
@@ -205,10 +254,14 @@
 		EA4825A42461B1890015CBDC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "André Brilho";
 				TargetAttributes = {
+					EA32402B24622F4600FC4F27 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = EA4825AB2461B1890015CBDC;
+					};
 					EA4825AB2461B1890015CBDC = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -228,11 +281,19 @@
 			projectRoot = "";
 			targets = (
 				EA4825AB2461B1890015CBDC /* ApiBeerCleanSwift */,
+				EA32402B24622F4600FC4F27 /* ApiBeerCleanSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EA32402A24622F4600FC4F27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA4825AA2461B1890015CBDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +350,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EA32402824622F4600FC4F27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA32402F24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EA4825A82461B1890015CBDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,6 +384,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EA32403224622F4600FC4F27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA4825AB2461B1890015CBDC /* ApiBeerCleanSwift */;
+			targetProxy = EA32403124622F4600FC4F27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		EA4825B32461B1890015CBDC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -335,6 +412,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EA32403424622F4600FC4F27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ApiBeerCleanSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.andrebrilho.ApiBeerCleanSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApiBeerCleanSwift.app/ApiBeerCleanSwift";
+			};
+			name = Debug;
+		};
+		EA32403524622F4600FC4F27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ApiBeerCleanSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.andrebrilho.ApiBeerCleanSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApiBeerCleanSwift.app/ApiBeerCleanSwift";
+			};
+			name = Release;
+		};
 		EA4825BF2461B18C0015CBDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -490,6 +607,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EA32403324622F4600FC4F27 /* Build configuration list for PBXNativeTarget "ApiBeerCleanSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA32403424622F4600FC4F27 /* Debug */,
+				EA32403524622F4600FC4F27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EA4825A72461B1890015CBDC /* Build configuration list for PBXProject "ApiBeerCleanSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

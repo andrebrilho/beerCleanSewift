@@ -28,5 +28,4 @@ class MainBeerWorker{
                 }.resume()
         }
     }
-    
 }
