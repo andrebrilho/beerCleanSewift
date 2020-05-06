@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77C167044C390B48E2D94F26 /* Pods_ApiBeerCleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD1542166FF4A0BE50AC86A /* Pods_ApiBeerCleanSwift.framework */; };
-		A7F7CB88C051634B4E5C84E3 /* Pods_ApiBeerCleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA08A0F42462FCB2009093BF /* Pods_ApiBeerCleanSwift.framework */; };
+		A7F7CB88C051634B4E5C84E3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E3B2C06D1D89680903E29599 /* Pods_ApiBeerCleanSwift_ApiBeerCleanSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA925B1BA00607B09139F65C /* Pods_ApiBeerCleanSwift_ApiBeerCleanSwiftTests.framework */; };
 		EA32402F24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA32402E24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift */; };
 		EA4825B02461B1890015CBDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4825AF2461B1890015CBDC /* AppDelegate.swift */; };
@@ -32,6 +32,8 @@
 		EA4825E32461B4800015CBDC /* BeerDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4825DD2461B4800015CBDC /* BeerDetailInteractor.swift */; };
 		EA4825E92461B5000015CBDC /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4825E72461B5000015CBDC /* BeerTableViewCell.swift */; };
 		EA4825EA2461B5000015CBDC /* BeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4825E82461B5000015CBDC /* BeerTableViewCell.xib */; };
+		EA6B93CE246334B10021FAA5 /* MainBeerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B93CD246334B10021FAA5 /* MainBeerPresenterTests.swift */; };
+		EA6B93D0246337C40021FAA5 /* MainBeerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B93CF246337C40021FAA5 /* MainBeerViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		EA4825DD2461B4800015CBDC /* BeerDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailInteractor.swift; sourceTree = "<group>"; };
 		EA4825E72461B5000015CBDC /* BeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
 		EA4825E82461B5000015CBDC /* BeerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerTableViewCell.xib; sourceTree = "<group>"; };
+		EA6B93CD246334B10021FAA5 /* MainBeerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBeerPresenterTests.swift; sourceTree = "<group>"; };
+		EA6B93CF246337C40021FAA5 /* MainBeerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBeerViewControllerTests.swift; sourceTree = "<group>"; };
 		FA925B1BA00607B09139F65C /* Pods_ApiBeerCleanSwift_ApiBeerCleanSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiBeerCleanSwift_ApiBeerCleanSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,7 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C167044C390B48E2D94F26 /* Pods_ApiBeerCleanSwift.framework in Frameworks */,
-				A7F7CB88C051634B4E5C84E3 /* Pods_ApiBeerCleanSwift.framework in Frameworks */,
+				A7F7CB88C051634B4E5C84E3 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				EA32402E24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift */,
+				EA6B93CD246334B10021FAA5 /* MainBeerPresenterTests.swift */,
+				EA6B93CF246337C40021FAA5 /* MainBeerViewControllerTests.swift */,
 				EA32403024622F4600FC4F27 /* Info.plist */,
 			);
 			path = ApiBeerCleanSwiftTests;
@@ -447,7 +453,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6B93D0246337C40021FAA5 /* MainBeerViewControllerTests.swift in Sources */,
 				EA32402F24622F4600FC4F27 /* ApiBeerCleanSwiftTests.swift in Sources */,
+				EA6B93CE246334B10021FAA5 /* MainBeerPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
