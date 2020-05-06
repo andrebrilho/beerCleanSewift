@@ -39,5 +39,4 @@ class MainBeerPresenter: MainBeerPresentationLogic{
     func showError(){
         viewController?.showError(erro: "OPS")
     }
-
 }
