@@ -18,6 +18,10 @@ class MainBeerPresenterTests: XCTestCase {
     var viewController: MainBeerViewController!
     var interactor:MainBeerInteractor!
     
+    var hasCalledReloadCollection = false
+    
+    func reloadTableView() { hasCalledReloadCollection = true }
+    
     override func setUp() {
         
         interactor = MainBeerInteractor()
@@ -26,6 +30,7 @@ class MainBeerPresenterTests: XCTestCase {
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
+        viewController.loadView()
     }
     
     func test_View_Controller_Instance() {
@@ -61,5 +66,15 @@ class MainBeerPresenterTests: XCTestCase {
         presenter.showData(listBeer: listBeer.value!)
         XCTAssert(viewController.beerTable != nil)
     }
+    
+    func test_show_error() {
+        presenter.showError()
+    }
+    
+    func test_reload_Table() {
+        presenter.reloadTable()
+        XCTAssert(viewController.beerTable.count == 0)
+    }
+    
 }
 
